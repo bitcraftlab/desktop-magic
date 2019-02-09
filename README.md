@@ -1,5 +1,5 @@
 # Processing Library Template
-## Github Pages Brach
+## Github Pages Branch
 
 This fork of the `processing library template` automatically publishes all documentation to the `docs` folder of the repository, so that you can use github pages to host the library.
 
