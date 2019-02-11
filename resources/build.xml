@@ -1,4 +1,4 @@
-<project name="Processing Library" default="clean" basedir="../">
+<project name="Processing Library" default="library.dev" basedir="../">
 
     
 <!--	
@@ -64,13 +64,12 @@
 	<property name="install.source" location="resources/README.md"/>
 	<property name="install.destination" location="${project.dist.version}/README.md"/>
 	<property name="libprops.source" location="resources/library.properties"/>
-	
+
 	<taskdef resource="net/sf/antcontrib/antcontrib.properties">
 		<classpath>
-			<pathelement location="./resources/code/ant-contrib-1.0b3.jar"/>
+			<pathelement location="${antcontrib.local.location}"/>
 		</classpath>
 	</taskdef>
-
 
 	<path id="classpath">
 		<fileset dir="${classpath.local.location}" includes="${classpath.local.include}" />
@@ -110,7 +109,7 @@ ${line}
 	
 	
 	<target name="library.run" depends="library.init"> 
-		<echo message="building library ..." />
+		<echo message="building library for distribution ..." />
 		<antcall target="generate.structure"><param name="folder" value="library"/></antcall>
 		<antcall target="generate.source" />
 		<antcall target="compile" />
@@ -126,6 +125,16 @@ ${line}
 		<delete dir="${project.tmp}"/>
 	</target>
 	
+	<target name="library.dev" depends="library.init">
+		<echo message="building library for development ..." />
+		<antcall target="generate.structure"><param name="folder" value="library"/></antcall>
+		<antcall target="generate.source" />
+		<antcall target="compile" />
+	  	<antcall target="generate.jar"><param name="folder" value="library"/></antcall>
+		<antcall target="generate.libprops" />
+		<antcall target="copyToSketchbook"><param name="folder" value="libraries"/></antcall>
+		<delete dir="${project.tmp}"/>
+	</target>
 	
 	
 	<target name="generate.libprops" if="is.normal">
