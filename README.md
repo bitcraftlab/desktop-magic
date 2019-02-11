@@ -1,6 +1,6 @@
 # desktop magic
 
-A processin library to interact with mouse, keyboard and screen outside of your window
+A processing library to interact with mouse, keyboard and screen outside of your window
 
 
 
