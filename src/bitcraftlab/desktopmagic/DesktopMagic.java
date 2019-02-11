@@ -4,23 +4,14 @@ package bitcraftlab.desktopmagic;
 import processing.core.*;
 
 /**
- * This is a template class and can be used to start a new processing Library.
- * Make sure you rename this class as well as the name of the example package 'template' 
- * to your own Library naming convention.
- * 
- * (the tag example followed by the name of an example included in folder 'examples' will
- * automatically include the example in the javadoc.)
+ *  Desktop magic class, for controlling everything outside your window ...
  *
  * @example Hello 
  */
 
 public class DesktopMagic {
 	
-	// myParent is a reference to the parent sketch
-	PApplet myParent;
-
-	int myVariable = 0;
-	
+	PApplet app;
 	public final static String VERSION = "##library.prettyVersion##";
 	
 
@@ -29,22 +20,22 @@ public class DesktopMagic {
 	 * initialize and start the Library.
 	 * 
 	 * @example Hello
-	 * @param theParent the parent PApplet
+	 * @param app reference to the processing app
 	 */
-	public DesktopMagic(PApplet theParent) {
-		myParent = theParent;
-		welcome();
+	public DesktopMagic(PApplet app) {
+		this.app = app;
+		info();
 	}
 	
-	
-	private void welcome() {
+	/**
+	 * Print info about the Library.
+	 * 
+	 * @return String
+	 */
+	private void info() {
 		System.out.println("##library.name## ##library.prettyVersion## by ##author##");
 	}
 	
-	
-	public String sayHello() {
-		return "desktop magic library.";
-	}
 	/**
 	 * return the version of the Library.
 	 * 
@@ -54,21 +45,5 @@ public class DesktopMagic {
 		return VERSION;
 	}
 
-	/**
-	 * 
-	 * @param theA the width of test
-	 * @param theB the height of test
-	 */
-	public void setVariable(int theA, int theB) {
-		myVariable = theA + theB;
-	}
-
-	/**
-	 * 
-	 * @return int
-	 */
-	public int getVariable() {
-		return myVariable;
-	}
 }
 
