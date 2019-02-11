@@ -15,5 +15,4 @@ void setup() {
 void draw() {
   background(0);
   fill(255);
-  text(md.sayHello(), 40, 200);
 }
