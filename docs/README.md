@@ -1,8 +1,8 @@
-## How to install Your Library
+## How to install Desktop Magic
 
 ### Install with the Contribution Manager
 
-Add contributed Libraries by selecting the menu item _Sketch_ → _Import Library..._ → _Add Library..._ This will open the Contribution Manager, where you can browse for Your Library, or any other Library you want to install.
+Add contributed Libraries by selecting the menu item _Sketch_ → _Import Library..._ → _Add Library..._ This will open the Contribution Manager, where you can browse for Desktop Magic, or any other Library you want to install.
 
 Not all available Libraries have been converted to show up in this menu. If a Library isn't there, it will need to be installed manually by following the instructions below.
 
@@ -14,25 +14,25 @@ By default the following locations are used for your sketchbook folder:
   * For Mac users, the sketchbook folder is located inside `~/Documents/Processing` 
   * For Windows users, the sketchbook folder is located inside `My Documents/Processing`
 
-Download Your Library from http://yourlibraryname.com
+Download Desktop Magic from http://bitcraftlab.gitbub.io/desktop-magic
 
 Unzip and copy the contributed Library's folder into the `libraries` folder in the Processing sketchbook. You will need to create this `libraries` folder if it does not exist.
 
-The folder structure for Library Your Library should be as follows:
+The folder structure for Library Desktop Magic should be as follows:
 
 ```
 Processing
   libraries
-    YourLibrary
+    desktopmagic
       examples
       library
-        YourLibrary.jar
+        desktopmagic.jar
       reference
       src
 ```
              
-Some folders like `examples` or `src` might be missing. After Library Your Library has been successfully installed, restart the Processing application.
+Some folders like `examples` or `src` might be missing. After Library Desktop Magic has been successfully installed, restart the Processing application.
 
 ### Troubleshooting
 
-If you're having trouble, have a look at the [Processing Wiki](https://github.com/processing/processing/wiki/How-to-Install-a-Contributed-Library) for more information, or contact the author [Your Name](http://yoururl.com).
+If you're having trouble, have a look at the [Processing Wiki](https://github.com/processing/processing/wiki/How-to-Install-a-Contributed-Library) for more information, or contact the author [bitcraftlab](http://bitcraftlab.com).
