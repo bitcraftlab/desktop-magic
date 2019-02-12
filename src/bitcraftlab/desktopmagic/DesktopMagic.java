@@ -3,48 +3,49 @@ package bitcraftlab.desktopmagic;
 
 import processing.core.*;
 
-/**
- * This is a template class and can be used to start a new processing Library.
- * Make sure you rename this class as well as the name of the example package 'template' 
- * to your own Library naming convention.
- * 
- * (the tag example followed by the name of an example included in folder 'examples' will
- * automatically include the example in the javadoc.)
- *
- * @example Hello 
- */
 
+/**
+ * Desktop magic class, for controlling everything outside your window.
+ * 
+ * @author ##author.name##
+ * @example VolumeControl
+ */
 public class DesktopMagic {
 	
-	// myParent is a reference to the parent sketch
-	PApplet myParent;
-
-	int myVariable = 0;
-	
 	public final static String VERSION = "##library.prettyVersion##";
+	public final static String NAME = "##library.name##";
+	public final static String AUTHOR = "##author.name##";
 	
-
+	PApplet app;
+	DesktopListener listener;
+	
 	/**
 	 * a Constructor, usually called in the setup() method in your sketch to
 	 * initialize and start the Library.
 	 * 
 	 * @example Hello
-	 * @param theParent the parent PApplet
+	 * @param app reference to the processing app
 	 */
-	public DesktopMagic(PApplet theParent) {
-		myParent = theParent;
-		welcome();
+	public DesktopMagic(PApplet app) {
+		
+		this.app = app;
+		listener = new DesktopListener(app);
+		
+		info();
+	
+		// make sure dispose is called when processing shuts down
+		app.registerMethod("dispose", this);
 	}
 	
-	
-	private void welcome() {
-		System.out.println("##library.name## ##library.prettyVersion## by ##author##");
+	/**
+	 * Print info about the Library.
+	 * 
+	 * @return String
+	 */
+	private void info() {
+		System.out.printf("%s %s by %s\n", NAME, VERSION, AUTHOR);
 	}
 	
-	
-	public String sayHello() {
-		return "desktop magic library.";
-	}
 	/**
 	 * return the version of the Library.
 	 * 
@@ -53,22 +54,33 @@ public class DesktopMagic {
 	public static String version() {
 		return VERSION;
 	}
-
+	
+	
 	/**
-	 * 
-	 * @param theA the width of test
-	 * @param theB the height of test
+	 * Show bezels when changing sound or brightness
 	 */
-	public void setVariable(int theA, int theB) {
-		myVariable = theA + theB;
+	
+	public void showBezel() {
+		DesktopBezel.show();
 	}
-
+	
 	/**
-	 * 
-	 * @return int
+	 * Hide bezels when changing sound or brightness
 	 */
-	public int getVariable() {
-		return myVariable;
+	public void hideBezel() {
+		DesktopBezel.hide();
 	}
+	
+	
+	/**
+	 * Reset and unregister everything
+	 */
+	public void dispose() {
+		DesktopListener.dispose();
+		DesktopBezel.dispose();
+		//System.out.println("done.");
+	}
+	
+
 }
 
