@@ -120,12 +120,6 @@ public class DesktopListener implements NativeKeyListener {
 	public void invokePressTriggers(NativeKeyEvent event) {
 
 		switch(event.getKeyCode()) {
-		case VC_VOLUME_UP:
-			call(VOLUME_UP);
-			break;
-		case VC_VOLUME_DOWN:
-			call(VOLUME_DOWN);
-			break;
 		}
 
 	}
@@ -139,6 +133,12 @@ public class DesktopListener implements NativeKeyListener {
 			if (mutecounter % 2 == 1) {
 				call("desktopMute");
 			}
+			break;
+		case VC_VOLUME_UP:
+			call(VOLUME_UP);
+			break;
+		case VC_VOLUME_DOWN:
+			call(VOLUME_DOWN);
 			break;
 		}
 
@@ -161,7 +161,7 @@ public class DesktopListener implements NativeKeyListener {
 		return reflection.invokeProcessingHook(hook, event);
 	}
 
-	static void showDebug(){
+	public static void showDebug(){
 		debug = true; 
 	}
 
